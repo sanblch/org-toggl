@@ -162,10 +162,9 @@ It is assumed that no two projects have the same name."
   "Stop running Toggl time entry."
   (interactive "p")
   (when toggl-current-time-entry
-    (toggl-request-put
+    (toggl-request-get
      (format "time_entries/%s/stop"
 	     (alist-get 'id (alist-get 'data toggl-current-time-entry)))
-     nil
      nil
      (cl-function
       (lambda (&key data &allow-other-keys)
